@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Healthy Lifestyle Pathway</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#FFE800;--surface:#FFFFFF;--ink:#1B1B1B;--muted:#4A4A4A;--red:#C4121C;--green:#12B24B;--cyan:#00A9E6;--orange:#F58220;--pink:#F06CAB;--blue:#0079B5;--cur:#5B2A9E;--dot:#0B7A36;--gl:#0B7A36;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.5 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1240px;margin:0 auto;padding:18px 14px 48px}
+h1,h2,h3,.fr{font-family:Fredoka,"Atkinson Hyperlegible",system-ui,sans-serif}
+h1{font-size:2.1rem;line-height:1.1;margin:6px 0 4px;color:var(--red)}
+
+.sub{margin:0 0 12px;font-weight:700}
+.tb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg);border:3px solid var(--ink);border-radius:14px 14px 0 0;padding:10px}
+.tb button{font:700 1rem Fredoka,system-ui,sans-serif;cursor:pointer;background:var(--red);color:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:8px 16px}
+.tb button:hover{background:var(--cyan);color:#1B1B1B}
+.tb button[aria-pressed="true"]{background:var(--surface);color:var(--ink)}
+.tb button:disabled{opacity:.45;cursor:default}
+.tb button:focus-visible{outline:3px solid var(--cur);outline-offset:2px}
+.tb .ttl{font:700 1.05rem Fredoka,sans-serif;margin-right:auto;min-width:210px}
+.scroll{overflow-x:auto;background:var(--bg);border:3px solid var(--ink);border-top:0;border-radius:0 0 14px 14px;padding:10px}
+svg{display:block;min-width:1000px;width:100%;height:auto;font-family:inherit}
+.nd rect{stroke:var(--ink);stroke-width:2.5;filter:drop-shadow(2px 3px 0 rgba(0,0,0,.25))}
+.nd text{fill:#1B1B1B;font-size:14.5px;text-anchor:middle}
+.nd .t{font-family:Fredoka,sans-serif;font-weight:700;font-size:15.5px}
+.q rect{fill:var(--surface)}.q text{fill:var(--ink)}
+.start rect,.stop rect{fill:var(--red)}.start text,.stop text{fill:#fff}
+.warn rect{fill:var(--orange)}
+.g1 rect{fill:var(--green)}.g2 rect{fill:var(--cyan)}.g3 rect{fill:var(--orange)}.g4 rect{fill:var(--pink)}.g5 rect{fill:#FFE800}
+.dot{fill:var(--dot);stroke:var(--ink);stroke-width:2}
+.nd .dn{fill:#fff;font:700 12.5px Fredoka,sans-serif}
+.nd,.pill,.ed{transition:opacity .2s}
+.dim{opacity:.3}
+.nd.done rect{stroke-width:4}
+.nd.cur rect{stroke:var(--cur);stroke-width:5.5}
+.nd.can rect{stroke-dasharray:8 4;stroke-width:4;stroke:var(--blue)}
+.nd{cursor:pointer}.nd:focus{outline:none}.nd:focus-visible rect{stroke:var(--cur);stroke-width:5.5}
+.ed{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ed.done{stroke:var(--blue);stroke-width:4}
+.ed.can{stroke:var(--blue);stroke-width:3;stroke-dasharray:6 4;animation:flow 1s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@media (prefers-reduced-motion:reduce){.ed.can{animation:none}}
+.ed.yes{stroke:var(--gl)}.ed.no{stroke:var(--red)}
+
+.pill{cursor:pointer}.pill:focus{outline:none}
+.pill rect{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.pill text{fill:var(--ink);font:700 12.5px Fredoka,sans-serif;text-anchor:middle}
+.pill.can rect{fill:var(--cyan)}.pill.can text{fill:#1B1B1B}
+.pill.can.yes rect{fill:var(--green)}.pill.can.no rect{fill:var(--red)}.pill.can.no text{fill:#fff}
+.pill:focus-visible rect{stroke:var(--cur);stroke-width:4}
+.hint{font-weight:700;margin:10px 2px 0}
+.panel{margin-top:18px}
+.card{background:var(--surface);border:3px solid var(--ink);border-top:12px solid var(--green);border-radius:14px;padding:18px 20px;box-shadow:6px 6px 0 var(--ink)}
+.card.stopc{border-top-color:var(--red)}.card.warnc{border-top-color:var(--orange)}
+.card h2{font-size:1.4rem;margin:0 0 8px}
+.svc{border:2.5px solid var(--ink);border-radius:12px;padding:12px 16px;margin:12px 0;background:var(--bg)}
+
+.svc h3{margin:0;font-size:1.15rem}
+.svc .tag{font-weight:700;font-size:.92rem;color:var(--muted)}
+.svc p{margin:6px 0}
+.svc a{color:#004A75;font-weight:700}
+.ph{background:var(--orange);color:#1B1B1B;border-radius:4px;padding:0 6px;font-weight:700}
+.portal{background:var(--cyan);color:#1B1B1B;border:2.5px solid var(--ink);border-radius:10px;padding:10px 14px;margin:14px 0 0}
+.stp{margin:0;padding:6px 6px 6px 34px;background:var(--bg);border:3px solid var(--ink);border-top:0;border-radius:0 0 14px 14px}
+.stp li{padding:10px 8px;border-bottom:2px dashed var(--muted)}.stp li:last-child{border:0}
+.stp .a{display:inline-block;background:var(--green);color:#1B1B1B;border:2px solid var(--ink);border-radius:6px;padding:0 8px;font-weight:700;margin-left:6px}
+.foot{font-size:.85rem;margin-top:20px;font-weight:700}
+</style>
+</head>
+<body>
+<main>
+<h1>Healthy lifestyle pathway</h1>
+<p class="sub">For adults aged 20–65 with prediabetes, diabetes, hypertension or obesity. Click the highlighted branches to work through it.</p>
+<div class="tb"><span class="ttl">Pathway</span><button id="tp" aria-pressed="true">Pathway</button><button id="ts" aria-pressed="false">Steps</button><button id="bk">Prev</button><button id="rs">Reset</button><button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">–</button><button id="fm" aria-pressed="false">Overview</button></div>
+<div class="scroll" id="sc"><svg id="map" viewBox="0 0 1220 880" role="img" aria-label="Healthy lifestyle referral pathway flowchart"></svg></div>
+<ol class="stp" id="stp" hidden></ol>
+<p class="hint" id="st"></p>
+<div class="panel" id="panel" aria-live="polite"></div>
+<p class="foot">Draft pathway for local review. Check the clinician screen, service details and links with your governance lead before use.</p>
+</main>
+<script>
+var PH='<span class="ph">add website</span>';
+var S={
+home:{n:"Home workouts",t:"MoveBoro app",d:"Follow-along exercises at home. No equipment, travel or cost needed, and they can start today."},
+walk:{n:"Gamified walking",t:"MoveBoro app",d:"A walking app that turns steps into points, streaks and unlockable local routes, with team challenges for friends and families. Colours and app build to be confirmed."},
+cycle:{n:"Cycling",t:"Cycling support",d:"Gentle, low-impact activity for people who find walking or running uncomfortable. Add local rides or bike schemes: "+PH},
+zumba:{n:"Zumba workouts",t:"Dance-based classes",d:"Fun, music-led sessions that feel less like exercise. Good for people who want company and variety. Add venues and times: "+PH},
+run:{n:"Run clubs",t:"More than a Run, Middlesbrough",d:"Friendly, beginner-welcome running and walking groups. Refer or signpost the patient to a local session.",l:"https://www.morethanarun.co.uk/",ll:"Visit More than a Run"},
+gym:{n:"Gym membership",t:"Middlesbrough Sports Village",d:"Referral to a gym membership with staff support to get started. Ideal for patients who want structure or a space away from home.",l:"https://www.everyoneactive.com/centre/middlesbrough-sports-village/",ll:"Visit Sports Village"},
+foot:{n:"Football club programme",t:"Referral and posters",d:"Refer into a local football club health programme, with posters displayed at the club to reach more patients. Add club name and contact: "+PH},
+swim:{n:"Swim club",t:"Swimming",d:"Low-impact, joint-friendly exercise that suits people with higher BMI or joint pain. Add pool and session details: "+PH},
+eat:{n:"Healthy eating",t:"Apps, websites and recipe book",d:"Trusted apps, websites and links for healthy recipes, plus a programme recipe book. Add your chosen links: "+PH},
+shop:{n:"Template shopping list",t:"Printable list",d:"A simple weekly shopping list template that makes healthy choices easier to plan and budget for."}
+};
+var Nn={
+start:[600,10,300,44,"start",["Patient looking to improve health"]],
+elig:[600,90,440,76,"q",["Aged 20–65 with at least one of:","prediabetes/diabetes, hypertension","or obesity (by BMI)?"]],
+noelig:[1050,90,240,76,"warn",["Not eligible","Signpost to general support"],"noelig"],
+flag:[600,210,440,76,"q",["Any reason to check with a clinician","before exercise? (chest pain, uncontrolled BP,","recent cardiac event, pregnancy)"]],
+gp:[1050,210,240,76,"stop",["Refer to GP or clinician","Review before exercise"],"gp"],
+where:[600,330,320,56,"q",["Where would they prefer","to be active?"]],
+oq:[300,430,200,50,"q",["What appeals most?"]],
+iq:[860,430,200,50,"q",["At home or elsewhere?"]],
+walk:[90,560,130,74,"good g1",["Gamified walking","MoveBoro app"],"walk"],
+cycle:[230,560,130,74,"good g2",["Cycling","Local support"],"cycle"],
+run:[370,560,130,74,"good g3",["Run clubs","More than a Run"],"run"],
+foot:[510,560,130,74,"good g4",["Football club","Referral + posters"],"foot"],
+home:[690,560,140,74,"good g1",["Home workouts","MoveBoro app"],"home"],
+tq:[1000,560,190,56,"q",["Which setting","suits them?"]],
+gym:[880,690,120,74,"good g2",["Gym","Sports Village"],"gym"],
+zumba:[1010,690,120,74,"good g3",["Zumba","classes"],"zumba"],
+swim:[1140,690,120,74,"good g4",["Swim club"],"swim"],
+eat:[610,800,1180,60,"good g5",["Every outcome also receives healthy eating support (apps, recipes, recipe book, shopping list)","and a prompt to use the self-referral portal"],"eat"]
+};
+var D={elig:1,flag:2,where:3,oq:4,iq:4,tq:5};
+var E=[["start","elig"],["elig","noelig","NO","h"],["elig","flag","YES"],["flag","gp","YES","h"],["flag","where","NO"],["where","oq","Outdoors"],["where","iq","Indoors"],
+["oq","walk"],["oq","cycle"],["oq","run"],["oq","foot"],["iq","home","At home"],["iq","tq","Third space"],["tq","gym"],["tq","zumba"],["tq","swim"]];
+var $=function(i){return document.getElementById(i)},el=$("map"),svg="",pills="";
+svg+='<defs>'+[["ar","--ink"],["at","--blue"],["ay","--gl"],["an","--red"]].map(function(m){return '<marker id="'+m[0]+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var('+m[1]+')"/></marker>'}).join('')+'</defs>';
+function pill(x,y,t,a,b){var w=t.length*8+20;return '<g class="pill" id="p_'+a+'_'+b+'" tabindex="0" role="button" aria-label="'+t+'"><rect x="'+(x-w/2)+'" y="'+(y-11)+'" width="'+w+'" height="22" rx="5"/><text x="'+x+'" y="'+(y+4.5)+'">'+t+'</text></g>'}
+E.forEach(function(e){
+ var a=Nn[e[0]],b=Nn[e[1]],d;
+ if(e[3]==="h"){var y=a[1]+a[3]/2,x1=a[0]+a[2]/2,x2=b[0]-b[2]/2;d="M"+x1+" "+y+"H"+x2;if(e[2])pills+=pill((x1+x2)/2,y,e[2],e[0],e[1]);}
+ else{var x1=a[0],y1=a[1]+a[3],x2=b[0],y2=b[1],m=(y1+y2)/2,r=Math.min(14,Math.abs(x2-x1)/2),s=x2>x1?1:-1;
+  d=x1===x2?"M"+x1+" "+y1+"V"+y2:"M"+x1+" "+y1+"V"+(m-r)+"Q"+x1+" "+m+" "+(x1+s*r)+" "+m+"H"+(x2-s*r)+"Q"+x2+" "+m+" "+x2+" "+(m+r)+"V"+y2;
+  if(e[2])pills+=pill((x1+x2)/2,m,e[2],e[0],e[1]);}
+ svg+='<path class="ed" id="e_'+e[0]+'_'+e[1]+'" d="'+d+'" marker-end="url(#ar)"/>';
+});
+Object.keys(Nn).forEach(function(id){
+ var n=Nn[id],x=n[0]-n[2]/2,l=n[5],k=n[6];
+ svg+='<g class="nd '+n[4]+'" id="n_'+id+'" tabindex="0" role="button" aria-label="'+l[0]+'"><rect x="'+x+'" y="'+n[1]+'" width="'+n[2]+'" height="'+n[3]+'" rx="'+(n[4]==="q"?24:10)+'"/>';
+ var y0=n[1]+n[3]/2-(l.length-1)*9+5;
+ l.forEach(function(t,i){svg+='<text class="'+(i===0&&n[4]!=="q"?"t":"")+'" x="'+n[0]+'" y="'+(y0+i*18)+'">'+t+'</text>'});
+ if(D[id])svg+='<circle class="dot" cx="'+x+'" cy="'+n[1]+'" r="13"/><text class="dn" x="'+x+'" y="'+(n[1]+4.5)+'">'+D[id]+'</text>';
+ svg+='</g>';
+});
+el.innerHTML=svg+pills;
+function card(id){var s=S[id];return '<div class="svc"><h3>'+s.n+'</h3><div class="tag">'+s.t+'</div><p>'+s.d+'</p>'+(s.l?'<a href="'+s.l+'" target="_blank" rel="noopener">'+s.ll+'</a>':'')+'</div>'}
+var P={
+noelig:{c:"warnc",t:"Not eligible",h:'<p>The patient does not meet the programme criteria. Offer general healthy eating resources and signpost to other local services.</p>',eat:1},
+gp:{c:"stopc",t:"Refer to GP or clinician",h:'<p>Do not refer to physical activity services yet. Arrange clinical review, then return to the pathway once cleared. Healthy eating support can still start now.</p>',eat:1}
+};
+function show(k,node){
+ var p=$("panel"),h="",g=document.querySelectorAll(".nd.sel");
+ if(P[k]){h='<div class="card '+P[k].c+'"><h2>'+P[k].t+'</h2>'+P[k].h+(P[k].eat?card("eat"):"")+'</div>';}
+ else if(k==="eat"){h='<div class="card"><h2>Healthy eating support for everyone</h2>'+card("eat")+card("shop")+'<div class="portal"><strong>Refer via the self-referral portal:</strong> '+PH+'</div></div>';}
+ else{h='<div class="card"><h2>'+S[k].n+'</h2>'+card(k)+(k==="home"?"":'<div class="portal"><strong>Refer via the self-referral portal:</strong> '+PH+'</div>')+card("eat")+card("shop")+'</div>';}
+ p.innerHTML=h;p.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+var kids={},path=["start","elig"],full=false,z=1,tab="p";
+E.forEach(function(e){(kids[e[0]]=kids[e[0]]||[]).push(e[1])});
+function cur(){return path[path.length-1]}
+function cls(on,can,x){return (on?" done":"")+(can?" can":"")+(on||can||full||x?"":" dim")}
+function steps(){
+ var h="";
+ path.forEach(function(id,i){
+  if(id==="start")return;
+  var nx=path[i+1],a="";
+  if(nx){var ed=E.filter(function(e){return e[0]===id&&e[1]===nx})[0];a=' <span class="a">'+(ed[2]||Nn[nx][5][0])+'</span>';}
+  h+='<li><b class="fr">'+Nn[id][5].join(" ")+'</b>'+a+'</li>';
+ });
+ $("stp").innerHTML=h;
+}
+function paint(){
+ var c=cur(),ch=kids[c]||[],end=!!Nn[c][6];
+ Object.keys(Nn).forEach(function(id){
+  var on=path.indexOf(id)>-1,can=ch.indexOf(id)>-1;
+  $("n_"+id).setAttribute("class","nd "+Nn[id][4]+cls(on,can,id==="eat"&&end&&c!=="eat")+(id===c?" cur":""));
+ });
+ E.forEach(function(e){
+  var i=path.indexOf(e[1]),on=i>0&&path[i-1]===e[0],can=e[0]===c;
+  var ty=e[2]==="YES"?" yes":e[2]==="NO"?" no":"",p=$("e_"+e[0]+"_"+e[1]);
+  p.setAttribute("class","ed"+ty+cls(on,can));
+  p.setAttribute("marker-end","url(#"+(ty===" yes"?"ay":ty===" no"?"an":(on||can)?"at":"ar")+")");
+  var q=$("p_"+e[0]+"_"+e[1]);if(q)q.setAttribute("class","pill"+ty+cls(on,can));
+ });
+ $("bk").disabled=path.length<3;
+ $("st").textContent=end?"Outcome reached. Press Prev to change an answer.":"Click a highlighted branch to answer.";
+ steps();
+}
+function go(id){
+ var i=path.indexOf(id);
+ if(i>-1){path=path.slice(0,i+1);if(cur()==="start")path.push("elig");}
+ else if((kids[cur()]||[]).indexOf(id)>-1){path.push(id);}
+ else{var k0=Nn[id][6];if(k0&&(id==="eat"||full)){show(k0,$("n_"+id));}return;}
+ paint();
+ var k=Nn[cur()][6];
+ if(k)show(k,$("n_"+cur()));else $("panel").innerHTML="";
+}
+function act(n,id){n.addEventListener("click",function(){go(id)});n.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go(id)}})}
+Object.keys(Nn).forEach(function(id){act($("n_"+id),id)});
+E.forEach(function(e){var q=$("p_"+e[0]+"_"+e[1]);if(q)act(q,e[1])});
+function zoom(){el.style.minWidth=(1000*z)+"px";el.style.width=(100*z)+"%"}
+function setTab(t){tab=t;$("sc").hidden=t==="s";$("stp").hidden=t!=="s";$("tp").setAttribute("aria-pressed",t==="p");$("ts").setAttribute("aria-pressed",t==="s")}
+$("tp").onclick=function(){setTab("p")};
+$("ts").onclick=function(){setTab("s")};
+$("bk").onclick=function(){if(path.length>2)go(path[path.length-2])};
+$("rs").onclick=function(){go("start")};
+$("zi").onclick=function(){z=Math.min(1.6,z+.2);zoom()};
+$("zo").onclick=function(){z=Math.max(.6,z-.2);zoom()};
+$("fm").onclick=function(){full=!full;this.setAttribute("aria-pressed",full);paint()};
+paint();
+</script>
+</body>
+</html>
